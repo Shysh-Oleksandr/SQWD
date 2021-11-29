@@ -17,17 +17,16 @@ testWebP(function (support) {
 });
 // /Webp converter
 // ==========================================================================
-// Burger menu
 $(document).ready(function() {
+	// Burger menu
 	$('.icon-menu').click(function(event) {
 		$('.icon-menu,.menu__body').toggleClass('_active');
 		$('body').toggleClass('_lock');
 	});
-});
-// /Burger menu
-// ==========================================================================
-// Scroll to section
-$(function() {
+	// /Burger menu
+
+	// ==========================================================================
+	// Scroll to section
 	$("[data-scroll]").on("click", function(event) {
 		event.preventDefault();
 
@@ -54,45 +53,7 @@ $(function() {
 	});
 	// /Scroll to section
 
-	// ==========================================================================
-	// Fixed Header 
-	var intro = $("#intro"),
-		header = $("#header"),
-		page = $(".page"),
-		introH = intro.innerHeight(),
-		scrollOffset = $(window).scrollTop();
-
-
-	$(window).on("scroll", function(){
-		scrollOffset = $(this).scrollTop() + 5;
-		checkScroll(scrollOffset);
-	});
-
-	$(window).resize(function(){
-		introH = intro.innerHeight()
-		scrollOffset = $(this).scrollTop();
-		checkScroll(scrollOffset);
-	});
-
-	function checkScroll (scrollOffset) {
-		if (scrollOffset >= introH) {
-			header.addClass("fixed");	
-			page.addClass("header-fixed");	
-		}
-		else {
-			header.removeClass("fixed");
-			page.removeClass("header-fixed");
-		}
-	}
-
-
-	checkScroll(scrollOffset);
-	// /Fixed Header 
-});
-
-// ==========================================================================
-// Slider
-$(document).ready(function(){
+	// Slider 
 	$('.intro__content').slick({
 		adaptiveHeight: false,
 		speed: 1500,
@@ -123,9 +84,42 @@ $(document).ready(function(){
 		speed: 700,
 		easing: 'ease',
 	});
+	// /Slider
 });
-// /Slider
 // ==========================================================================
+// Fixed Header 
+var intro = $("#intro"),
+	header = $("#header"),
+	page = $(".page"),
+	introH = intro.innerHeight(),
+	scrollOffset = $(window).scrollTop();
+
+
+$(window).on("scroll", function(){
+	scrollOffset = $(this).scrollTop() + 5;
+	checkScroll(scrollOffset);
+});
+
+$(window).resize(function(){
+	introH = intro.innerHeight()
+	scrollOffset = $(this).scrollTop();
+	checkScroll(scrollOffset);
+});
+
+function checkScroll (scrollOffset) {
+	if (scrollOffset >= introH) {
+		header.addClass("fixed");	
+		page.addClass("header-fixed");	
+	}
+	else {
+		header.removeClass("fixed");
+		page.removeClass("header-fixed");
+	}
+}
+
+
+checkScroll(scrollOffset);
+// /Fixed Header 
 
 // ==========================================================================
 // Scroll active links.
@@ -229,6 +223,5 @@ filterLinks.on("click", function(event){
 	});
 	
 });
-
 // /Filter links
 // ==========================================================================
